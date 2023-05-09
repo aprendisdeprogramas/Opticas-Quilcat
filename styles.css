@@ -12,17 +12,10 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-body, html {
-    /* estilos anteriores */
     background-size: cover;
     background-repeat: no-repeat;
-}
-body, html {
-    /* estilos anteriores */
     background-position: center center;
 }
-
 header {
     background-color: black;
     display: flex;
