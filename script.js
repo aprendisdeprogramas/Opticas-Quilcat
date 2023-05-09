@@ -56,6 +56,30 @@ function handleParticles() {
 }
 
 canvas.addEventListener('mousemove', createParticles);
+let isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+if (isTouchDevice) {
+    canvas.addEventListener('touchstart', () => {
+        isMouseDown = true;
+    });
+
+    canvas.addEventListener('touchend', () => {
+        isMouseDown = false;
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+        createParticles(e.touches[0]);
+    });
+} else {
+    canvas.addEventListener('mousedown', () => {
+        isMouseDown = true;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+        isMouseDown = false;
+    });
+}
+
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
